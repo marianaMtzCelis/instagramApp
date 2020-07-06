@@ -78,6 +78,56 @@
     }
 }
 
+- (IBAction)onLogin:(id)sender {
+    
+    if ([self.usernameTextField.text isEqual:@""] || [self.passwordTextField.text isEqual:@""]) {
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Username and Password Fields Required"
+               message:@"Please enter your username and password"
+        preferredStyle:(UIAlertControllerStyleAlert)];
+        
+        // create an OK action
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // handle response here.
+        }];
+        
+        // add the OK action to the alert controller
+        [alert addAction:okAction];
+        
+        [self presentViewController:alert animated:YES completion:^{
+            // optional code for what happens after the alert controller has finished presenting
+        }];
+        
+    } else {
+    
+    NSString *username = self.usernameTextField.text;
+       NSString *password = self.passwordTextField.text;
+       
+       [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+           if (error != nil) {
+               NSLog(@"User log in failed: %@", error.localizedDescription);
+               NSLog(@"Error: %@", error.localizedDescription);
+                      UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                             message:error.localizedDescription
+                      preferredStyle:(UIAlertControllerStyleAlert)];
+                      
+                      UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+               
+                      [alert addAction:okAction];
+                      
+                      [self presentViewController:alert animated:YES completion:^{}];
+           } else {
+               NSLog(@"User logged in successfully");
+               
+            //   [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+    
+           }
+       }];
+        
+    }
+}
+
+
 /*
 #pragma mark - Navigation
 
