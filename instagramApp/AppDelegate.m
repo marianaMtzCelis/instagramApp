@@ -26,6 +26,7 @@
     
     [Parse initializeWithConfiguration:config];
     
+    /*
     PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
     gameScore[@"score"] = @1337;
     gameScore[@"playerName"] = @"Sean Plott";
@@ -37,6 +38,7 @@
          NSLog(@"Error: %@", error.description);
       }
     }];
+     */
     
     return YES;
 }
