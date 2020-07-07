@@ -34,6 +34,7 @@
     
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {}];
     NSLog(@"User logged out successfully");
+    
 }
 
 
