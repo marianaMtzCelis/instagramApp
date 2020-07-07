@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  TimelineViewController.h
 //  instagramApp
 //
 //  Created by Mariana Martinez on 06/07/20.
@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+NS_ASSUME_NONNULL_BEGIN
 
-@property (strong, nonatomic) UIWindow *window;
+@interface TimelineViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END
