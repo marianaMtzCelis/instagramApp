@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
+#import "SceneDelegate.h"
 
 @interface TimelineViewController ()
 
@@ -24,14 +25,14 @@
 
 - (IBAction)onLogOut:(id)sender {
     
-    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        
+    SceneDelegate *sceneDelegate = (SceneDelegate *) self.view.window.windowScene.delegate;
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    appDelegate.window.rootViewController = loginViewController;
+    sceneDelegate.window.rootViewController = loginViewController;
     
-    [self dismissViewControllerAnimated:NO completion:nil];
+    // [self dismissViewControllerAnimated:NO completion:nil];
     
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {}];
     NSLog(@"User logged out successfully");
