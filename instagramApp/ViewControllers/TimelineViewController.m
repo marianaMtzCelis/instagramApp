@@ -32,10 +32,9 @@
     LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     sceneDelegate.window.rootViewController = loginViewController;
     
-    // [self dismissViewControllerAnimated:NO completion:nil];
-    
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {}];
     NSLog(@"User logged out successfully");
+    
 }
 
 
