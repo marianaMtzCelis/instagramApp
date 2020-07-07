@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 
 - (IBAction)onSignUp:(id)sender {
@@ -71,7 +71,7 @@
            } else {
                NSLog(@"User registered successfully");
                
-             //  [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+               [self performSegueWithIdentifier:@"loginSegue" sender:nil];
 
            }
        }];
@@ -119,7 +119,7 @@
            } else {
                NSLog(@"User logged in successfully");
                
-            //   [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+               [self performSegueWithIdentifier:@"loginSegue" sender:nil];
     
            }
        }];
@@ -128,7 +128,7 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -136,6 +136,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end
