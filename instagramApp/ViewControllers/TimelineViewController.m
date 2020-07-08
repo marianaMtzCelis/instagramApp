@@ -11,8 +11,16 @@
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
 #import "SceneDelegate.h"
+#import "PostCell.h"
+#import "Post.h"
 
-@interface TimelineViewController ()
+
+
+@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *posts;
 
 @end
 
@@ -20,7 +28,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.rowHeight = 400;
+    
+    [self getTimeline];
+}
+
+- (void)getTimeline {
+    
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    //[query whereKey:@"likesCount" greaterThan:@100];
+    query.limit = 20;
+    [query includeKey:@"author"];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self.posts = (NSMutableArray *)posts;
+            /*
+            for (Post *post in posts) {
+                NSString *author = post.author;
+                NSLog(@"%@", author);
+            }
+             */
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+    
 }
 
 - (IBAction)onLogOut:(id)sender {
@@ -47,5 +86,30 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
+    
+    Post *post = self.posts[indexPath.row];
+    
+    //[cell.postImageView.image setImage:post.image];
+    
+    cell.postImageView.file = post.image;
+    [cell.postImageView loadInBackground];
+    cell.usernameLabel.text = post.author.username;
+    cell.captionLabel.text = post.caption;
+    //cell.timestampLabel.text = post.createdAt;
+    
+    
+    //cell.usernameLabel.text = [NSString stringWithFormat:@"row: %d", indexPath.row];
+    
+    return cell;
+    
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.posts.count;
+}
 
 @end
