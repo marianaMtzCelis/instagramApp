@@ -33,9 +33,7 @@
 
 - (IBAction)onShare:(id)sender {
     
-    self.post.caption = self.captionTextView.text;
-    
-    [Post postUserImage:self.pictureView.image withCaption:self.post.caption withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Post postUserImage:self.pictureView.image withCaption:self.captionTextView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"Post success");
             [self dismissViewControllerAnimated:YES completion:nil];
