@@ -15,6 +15,7 @@
 #import "Post.h"
 #import "DateTools.h"
 #import "NSDate+TimeAgo.h"
+#import "DetailsViewController.h"
 
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -85,30 +86,35 @@
 }
 
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    PostCell *tappedCell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+    Post *post = self.posts[indexPath.row];
+    DetailsViewController *detailViewController = [segue destinationViewController];
+    detailViewController.post = post;
+    
+    NSLog(@"Tapping post");
+    
 }
-*/
+
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
      PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
     
     Post *post = self.posts[indexPath.row];
-    
-    //[cell.postImageView.image setImage:post.image];
-    
     cell.post = post;
+    
     cell.postImageView.file = post.image;
     [cell.postImageView loadInBackground];
     cell.usernameLabel.text = post.author.username;
     cell.captionLabel.text = post.caption;
-    //cell.timestampLabel.text = post.createdAt;
  
     /*
     NSDate *createdAt = [cell.post createdAt];
