@@ -22,6 +22,8 @@
 
 @property (nonatomic, strong) NSMutableArray *posts;
 
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+
 @end
 
 @implementation TimelineViewController
@@ -34,6 +36,11 @@
     self.tableView.rowHeight = 400;
     
     [self getTimeline];
+    
+    // Refresh Control
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(getTimeline) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
 }
 
 - (void)getTimeline {
@@ -58,6 +65,7 @@
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
+        [self.refreshControl endRefreshing];
     }];
     
 }
