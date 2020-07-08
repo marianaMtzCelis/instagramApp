@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2806EDD924B657A400B357FA /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2806EDD824B657A400B357FA /* PostCell.m */; };
+		2806EDDC24B67D8200B357FA /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2806EDDB24B67D8200B357FA /* DetailsViewController.m */; };
 		2853CB0924B51458003D3A29 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853CB0824B51458003D3A29 /* ComposeViewController.m */; };
 		2853CB0C24B51837003D3A29 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853CB0B24B51837003D3A29 /* Post.m */; };
 		28E1BB0724B3D3E100BEBF84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1BB0624B3D3E100BEBF84 /* AppDelegate.m */; };
@@ -49,6 +50,8 @@
 		263AC5FA8F79A838A8D436E8 /* Pods-instagramAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagramAppTests.release.xcconfig"; path = "Target Support Files/Pods-instagramAppTests/Pods-instagramAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		2806EDD724B657A400B357FA /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
 		2806EDD824B657A400B357FA /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
+		2806EDDA24B67D8200B357FA /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		2806EDDB24B67D8200B357FA /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		2853CB0724B51458003D3A29 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		2853CB0824B51458003D3A29 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		2853CB0A24B51837003D3A29 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
@@ -181,6 +184,8 @@
 				28E1BB4224B3E93600BEBF84 /* TimelineViewController.m */,
 				2853CB0724B51458003D3A29 /* ComposeViewController.h */,
 				2853CB0824B51458003D3A29 /* ComposeViewController.m */,
+				2806EDDA24B67D8200B357FA /* DetailsViewController.h */,
+				2806EDDB24B67D8200B357FA /* DetailsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28E1BB0D24B3D3E100BEBF84 /* ViewController.m in Sources */,
+				2806EDDC24B67D8200B357FA /* DetailsViewController.m in Sources */,
 				28E1BB0724B3D3E100BEBF84 /* AppDelegate.m in Sources */,
 				28E1BB1824B3D3E200BEBF84 /* main.m in Sources */,
 				28E1BB0A24B3D3E100BEBF84 /* SceneDelegate.m in Sources */,
