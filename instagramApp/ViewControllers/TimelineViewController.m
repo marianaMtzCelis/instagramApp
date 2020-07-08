@@ -13,8 +13,8 @@
 #import "SceneDelegate.h"
 #import "PostCell.h"
 #import "Post.h"
-
-
+#import "DateTools.h"
+#import "NSDate+TimeAgo.h"
 
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -103,14 +103,25 @@
     
     //[cell.postImageView.image setImage:post.image];
     
+    cell.post = post;
     cell.postImageView.file = post.image;
     [cell.postImageView loadInBackground];
     cell.usernameLabel.text = post.author.username;
     cell.captionLabel.text = post.caption;
     //cell.timestampLabel.text = post.createdAt;
+ 
+    /*
+    NSDate *createdAt = [cell.post createdAt];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    formatter.dateFormat = @"E MMM d HH:mm:ss Zy";
+    [formatter setDateFormat:@"h:mma"];
+    cell.timestampLabel.text = [formatter stringFromDate:createdAt];
+    */
     
-    
-    //cell.usernameLabel.text = [NSString stringWithFormat:@"row: %d", indexPath.row];
+    NSDate *createdAt = [cell.post createdAt];
+    NSString *ago = [createdAt timeAgo];
+    NSString *createdAtString = ago;
+    cell.timestampLabel.text = createdAtString;
     
     return cell;
     
