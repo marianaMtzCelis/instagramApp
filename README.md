@@ -33,21 +33,18 @@ The following **optional** features are implemented:
 - [x] User can like a post and see number of likes for each post in the post details screen.
 - [ ] Implement a custom camera view.
 
-The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
-
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Better ways to implement the likes feature
+2. Hot to extend my app on the comments feature
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/k3fG7vCkxP.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/nXdMeemmkW.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+<img src='http://g.recordit.co/k3fG7vCkxP.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <img src='http://g.recordit.co/2BRGfypmZG.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
