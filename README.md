@@ -2,7 +2,7 @@
 
 **InstagramApp** is a photo sharing app using Parse as its backend.
 
-Time spent: **X** hours spent in total
+Time spent: **14** hours spent in total
 
 ## User Stories
 
@@ -48,7 +48,14 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://g.recordit.co/k3fG7vCkxP.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+<img src='http://g.recordit.co/2BRGfypmZG.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+<img src='http://g.recordit.co/zZi0fztLuL.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+<img src='http://g.recordit.co/M5TZOICNF2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIFs created with [Recordit](https://recordit.co/).
 
 ## Credits
 
