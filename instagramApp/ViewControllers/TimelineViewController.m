@@ -34,7 +34,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.rowHeight = 400;
+    self.tableView.rowHeight = 300;
     
     [self getTimeline];
     
@@ -48,7 +48,7 @@
     
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    //[query whereKey:@"likesCount" greaterThan:@100];
+    [query orderByDescending:@"createdAt"];
     query.limit = 20;
     [query includeKey:@"author"];
 
@@ -93,6 +93,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
+    if ([[segue identifier] isEqualToString:@"detailSegue"]) {
     PostCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
     Post *post = self.posts[indexPath.row];
@@ -100,7 +101,7 @@
     detailViewController.post = post;
     
     NSLog(@"Tapping post");
-    
+    }
 }
 
 
@@ -111,18 +112,16 @@
     Post *post = self.posts[indexPath.row];
     cell.post = post;
     
+    cell.postImageView.file = nil;
+    
     cell.postImageView.file = post.image;
     [cell.postImageView loadInBackground];
     cell.usernameLabel.text = post.author.username;
     cell.captionLabel.text = post.caption;
- 
-    /*
-    NSDate *createdAt = [cell.post createdAt];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    formatter.dateFormat = @"E MMM d HH:mm:ss Zy";
-    [formatter setDateFormat:@"h:mma"];
-    cell.timestampLabel.text = [formatter stringFromDate:createdAt];
-    */
+    
+    NSNumber *number = cell.post.likeCount;
+    int value = [number intValue];
+    [cell.likeButton setTitle:[NSString stringWithFormat:@"%i", value] forState:UIControlStateNormal];
     
     NSDate *createdAt = [cell.post createdAt];
     NSString *ago = [createdAt timeAgo];
