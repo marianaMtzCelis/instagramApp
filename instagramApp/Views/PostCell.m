@@ -7,6 +7,7 @@
 //
 
 #import "PostCell.h"
+#import <Parse/Parse.h>
 
 @implementation PostCell
 
@@ -20,5 +21,37 @@
 
     // Configure the view for the selected state
 }
+
+-(void)refreshData {
+    
+    NSNumber *number = self.post.likeCount;
+    int value = [number intValue];
+    [self.likeButton setTitle:[NSString stringWithFormat:@"%i", value] forState:UIControlStateNormal];
+    
+}
+
+- (IBAction)onLike:(id)sender {
+    
+    NSNumber *number = self.post.likeCount;
+    int value = [number intValue];
+    number = [NSNumber numberWithInt:value + 1];
+    self.post.likeCount = number;
+    
+    // TODO: Make red boton work
+   // [self.likeButton setImage:[UIImage imageNamed:@"heart.fill"] forState:UIControlStateNormal];
+    
+    // TODO: send update to parse
+    
+    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"updated post");
+        } else {
+            NSLog(@"Error updating post");
+        }
+    }];
+    
+    [self refreshData];
+}
+
 
 @end

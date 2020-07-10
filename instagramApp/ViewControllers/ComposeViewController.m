@@ -90,7 +90,8 @@
 
     // Do something with the images (based on your use case)
     [self.pictureView setImage:editedImage];
-    self.pictureView.image = [self resizeImage:editedImage withSize:CGSizeMake(150, 150)];
+    //self.pictureView.image = [self resizeImage:editedImage withSize:CGSizeMake(370, 257)];
+    self.pictureView.image = [self resizeImage:editedImage withSize:CGSizeMake(360, 169)];
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];

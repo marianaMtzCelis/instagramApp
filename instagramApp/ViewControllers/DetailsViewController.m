@@ -22,6 +22,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+
 @end
 
 @implementation DetailsViewController
@@ -39,7 +41,41 @@
     NSString *ago = [createdAt timeAgo];
     NSString *createdAtString = ago;
     self.timestampLabel.text = createdAtString;
+    
+    [self refreshData];
 }
+
+-(void)refreshData {
+    
+    NSNumber *number = self.post.likeCount;
+    int value = [number intValue];
+    [self.likeButton setTitle:[NSString stringWithFormat:@"%i", value] forState:UIControlStateNormal];
+    
+}
+
+- (IBAction)onLike:(id)sender {
+    
+   NSNumber *number = self.post.likeCount;
+    int value = [number intValue];
+    number = [NSNumber numberWithInt:value + 1];
+    self.post.likeCount = number;
+    
+    // TODO: Make red boton work
+   // [self.likeButton setImage:[UIImage imageNamed:@"heart.fill"] forState:UIControlStateNormal];
+    
+    // TODO: send update to parse
+    
+    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"updated post");
+        } else {
+            NSLog(@"Error updating post");
+        }
+    }];
+    
+    [self refreshData];
+}
+
 
 /*
 #pragma mark - Navigation
