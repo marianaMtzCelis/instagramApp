@@ -55,6 +55,8 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://g.recordit.co/M5TZOICNF2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+<img src='https://recordit.co/IlpqReToBY.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 GIFs created with [Recordit](https://recordit.co/).
 
 ## Credits
